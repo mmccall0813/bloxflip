@@ -1,4 +1,4 @@
-const {token, prefix} = require("./config.json");
+const config = require("./config.json");
 var encryptionKey = "";
 
 var flipRequests = [];
@@ -10,7 +10,9 @@ var encryptionCheck = require("./checkEncryption.js")();
 
 encryptionKey = encryptionCheck;
 
-const Client = require("./bloxroll.js")
+const BloxClient = require("./bloxroll.js");
+const Client = new BloxClient(config);
 
-if(token) Client.login(token); else console.log("No token provided for discord bot.")
+if(!config.prefix) {console.log("No prefix provided, defaulting to !"); config.prefix="!"}
+if(config.token) Client.login(config.token); else console.log("No token provided for discord bot.")
 
