@@ -3,9 +3,6 @@ module.exports = function(encryptionKey){
   const aes256 = require("aes256");
   const fs = require("fs");
   if(!fs.existsSync("./encryption.key")){
-  
-  
-  
   console.log("No encryption key found... Generating a new one...")
   
   var newKey = crypto.randomBytes(128).toString("hex")

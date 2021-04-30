@@ -1,6 +1,4 @@
-const {Client, MessageEmbed} = require("discord.js");
-const {token, prefix, mode} = require("./config.json");
-const fs = require("fs");
+const {token, prefix} = require("./config.json");
 var encryptionKey = "";
 
 var flipRequests = [];
@@ -12,4 +10,7 @@ var encryptionCheck = require("./checkEncryption.js")();
 
 encryptionKey = encryptionCheck;
 
-const client = require("discord.")
+const Client = require("./bloxroll.js")
+
+if(token) Client.login(token); else console.log("No token provided for discord bot.")
+
