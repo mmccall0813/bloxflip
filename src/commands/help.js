@@ -7,12 +7,9 @@ module.exports = {
     var args = message.content.split(" ").slice(1);
     embed.setTitle("Help")
     .setColor("#34deeb")
-    switch(args[0]){
-      case "0":
-      default:
-      embed.addField("`help`", "shows you this page")
-      .addField("`setcookie`", "sets your roblox cookie")
-      break;
-    }
+    .addField("`help`", "shows you this page")
+    .addField("`setcookie`", "sets your roblox cookie. usage: setcookie `insert cookie here`")
+    .addField("`removecookie`", "deletes your roblox cookie from the database")
+    .addField("`coinflip`", "start a coinflip with another user. usage: coinflip @user 100")
   }
 }
