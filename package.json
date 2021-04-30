@@ -1,0 +1,34 @@
+{
+  "name": "bloxroll",
+  "description": "An open-source coinflip discord bot that uses robux to reward the winner of a coinflip.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.5.2",
+    "noblox.js": "^4.8.5",
+    "aes256": "^1.1.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmccall0813/bloxroll.git"
+  },
+  "keywords": [
+    "roblox",
+    "noblox",
+    "discord",
+    "discord.js"
+  ],
+  "author": "mmccall0813",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmccall0813/bloxroll/issues"
+  },
+  "homepage": "https://github.com/mmccall0813/bloxroll#readme",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}

@@ -1,0 +1,6 @@
+encryption.key
+*.user
+package-lock.json
+node_modules
+shrinkwrap.yaml
+.data/
