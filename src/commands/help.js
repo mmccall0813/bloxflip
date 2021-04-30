@@ -10,7 +10,8 @@ module.exports = {
     switch(args[0]){
       case "0":
       default:
-      
+      embed.addField("`help`", "shows you this page")
+      .addField("`setcookie`", "sets your roblox cookie")
       break;
     }
   }
