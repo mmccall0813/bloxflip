@@ -1,8 +1,6 @@
 const config = require("./config.json");
 var encryptionKey = "";
 
-var flipRequests = [];
-
 console.log("Starting...");
 console.log("Checking encrytion key...")
 
@@ -10,7 +8,9 @@ var encryptionCheck = require("./checkEncryption.js")();
 
 encryptionKey = encryptionCheck;
 
-const BloxClient = require("./bloxroll.js");
+config.encryptionKey = encryptionKey;
+
+const BloxClient = require("./bloxflip.js");
 const Client = new BloxClient(config);
 
 if(!config.prefix) {console.log("No prefix provided, defaulting to !"); config.prefix="!"}
