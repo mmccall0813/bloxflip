@@ -24,9 +24,9 @@ client.on("ready", () => {
   console.log("Bot is ready!");
 })
 client.on("message", (msg) => {
-  if(msg.author.bot || !msg.startsWith(config.prefix)) return;
-  var command = msg.replace(config.prefix, "").trim().split(/ +/)[0].toLowerCase();
-  var content = msg.replace(config.prefix, "").trim();
+  if(msg.author.bot || !msg.content.startsWith(config.prefix)) return;
+  var command = msg.content.replace(config.prefix, "").trim().split(/ +/)[0].toLowerCase();
+  var content = msg.content.replace(config.prefix, "").trim();
   if (!client.commands.has(command)) return;
   try{
   client.commands.get(command).execute(msg, client, content)
