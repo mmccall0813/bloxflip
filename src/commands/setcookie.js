@@ -25,7 +25,7 @@ module.exports = {
       thumbNail: data.ThumbnailURL,
       username: data.UserName
     }
-    fs.writeFileSync(message.author.id.toString(), aes256.encrypt(client.encryptionKey, userData));
+    fs.writeFileSync(".data/"+message.author.id.toString()+".user", aes256.encrypt(client.encryptionKey, userData));
     message.channel.send(embed);
   }
 }
