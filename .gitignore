@@ -5,3 +5,4 @@ node_modules
 shrinkwrap.yaml
 .data/
 .gitconfig
+.glitch-assets
