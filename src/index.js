@@ -25,10 +25,11 @@ client.on("ready", () => {
 })
 client.on("message", (msg) => {
   if(msg.author.bot || !msg.startsWith(config.prefix)) return;
-  var command = msg.replace(config.prefix, "").trim().split(/ +/)[0]
+  var command = msg.replace(config.prefix, "").trim().split(/ +/)[0].toLowerCase();
+  var content = msg.replace(config.prefix, "").trim();
   if (!client.commands.has(command)) return;
   try{
-  client.commands.get(command).execute(msg, client)
+  client.commands.get(command).execute(msg, client, content)
   } catch(err){
     var errorId = Math.floor(Math.random()*100000)
     msg.channel.send("An error occured while trying to execute that command. Please contact the developer of the bot for help. Error ID: " + errorId);
