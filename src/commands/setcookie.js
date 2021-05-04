@@ -14,7 +14,7 @@ module.exports = {
     } catch(err){
       return message.channel.send("That cookie is invalid! Make sure that you are sending your `.ROBLOSECURITY` token. If you don't know where to get your ROBLOSECURITY cookie then look it up.");
     }
-    if(message.guild)/* This is bad!! */{return message.author.send("Hey! You just sent your `.ROBLOSECURITY` cookie in a server! This is not a good thing! I've deleted the message for you, but you should probably log out and log back in, and retry the command in this DM.")}
+    if(message.guild)/* This is bad!! */{return message.author.send("Hey! You just sent your `.ROBLOSECURITY` cookie in a server! This is not a good thing! I've deleted the message for you, but you should probably log out and log back in to invalidate the cookie, and retry the command in this DM.")}
    var cookie = content.split(" ")[0];
     var embed = new MessageEmbed();
     var data = await noblox.getCurrentUser().UserName
