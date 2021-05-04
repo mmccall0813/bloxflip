@@ -25,7 +25,7 @@ client.on("ready", () => {
 })
 client.on("message", (msg) => {
   if(msg.author.bot || !msg.startsWith(config.prefix)) return;
-  var command = msg.replace(config.prefix, "").split(" ")[0]
+  var command = msg.replace(config.prefix, "").trim().split(/ +/)[0]
   if (!client.commands.has(command)) return;
   try{
   client.commands.get(command).execute(msg, client)
@@ -33,7 +33,7 @@ client.on("message", (msg) => {
     var errorId = Math.floor(Math.random()*100000)
     msg.channel.send("An error occured while trying to execute that command. Please contact the developer of the bot for help. Error ID: " + errorId);
     if(!fs.existsSync("./errors")) fs.mkdirSync("./errors");
-    console.log("Error occured, for more info check the file errors/"+errorId+".txt")
+    console.log("Error occured, for more info check the file \"errors/"+errorId+".txt\"")
     fs.writeFileSync(errorId+".txt", err);
   }
 })
