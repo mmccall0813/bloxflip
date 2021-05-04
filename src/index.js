@@ -20,7 +20,6 @@ if(config.token) Client.login(config.token); else console.log("No token provided
 var cmdFolder = fs.existsSync("./commands") ? fs.readdirSync("./commands/") : fs.readdirSync("./src/commands/");
 
 for(var i in cmdFolder){
-  if(cmdFolder[i]){
-    
-  }
+  if(!cmdFolder[i].endsWith(".js")) continue;
+  
 }
