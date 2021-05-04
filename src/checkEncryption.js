@@ -13,6 +13,8 @@ module.exports = function(encryptionKey){
   if(!fs.existsSyns("./.data/")) fs.mkdirSync("./.data");
   fs.writeFileSync("./.data/test.user", aes256.encrypt(newKey, "Testing File."))
   console.log("Creating new encryption test file...")
+}else{
+  console.log("Encryption key exists...");
 }
 
 console.log("Checking encryption test file...")

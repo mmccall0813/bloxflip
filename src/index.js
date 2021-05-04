@@ -5,11 +5,7 @@ const fs = require("fs");
 console.log("Starting...");
 console.log("Checking encrytion key...")
 
-var encryptionCheck = require("./checkEncryption.js")();
-
-encryptionKey = encryptionCheck;
-
-config.encryptionKey = encryptionKey;
+config.encryptionKey = require("./checkEncryption.js")();
 
 const BloxClient = require("./bloxflip.js");
 const client = new BloxClient(config);
@@ -29,5 +25,15 @@ client.on("ready", () => {
 })
 client.on("message", (msg) => {
   if(msg.author.bot || !msg.startsWith(config.prefix)) return;
-  
+  var command = msg.replace(config.prefix, "").split(" ")[0]
+  if (!client.commands.has(command)) return;
+  try{
+  client.commands.get(command).execute(msg, client)
+  } catch(err){
+    var errorId = Math.floor(Math.random()*100000)
+    msg.channel.send("An error occured while trying to execute that command. Please contact the developer of the bot for help. Error ID: " + errorId);
+    if(!fs.existsSync("./errors")) fs.mkdirSync("./errors");
+    console.log("Error occured, for more info check the file errors/"+errorId+".txt")
+    fs.writeFileSync(errorId+".txt", err);
+  }
 })
