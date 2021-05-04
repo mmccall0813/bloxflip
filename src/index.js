@@ -21,5 +21,6 @@ var cmdFolder = fs.existsSync("./commands") ? fs.readdirSync("./commands/") : fs
 
 for(var i in cmdFolder){
   if(!cmdFolder[i].endsWith(".js")) continue;
-  
+  var command = require(`./commands/${cmdFolder[i]}`);
+  Client.commands.set(command.name, command);
 }
